@@ -11,19 +11,35 @@ import java.util.ArrayList;
 
 public class FileInputs{
     public static void main (String [] args) throws Exception{
-        //Reader: This takes everyline from a .txt and puts them as a separate string in an ArrayList
-        ArrayList<String> fileIn = new ArrayList<>();   //file input
-        ArrayList<String> tempLine = new ArrayList<>(); //To split line into individual words
-        BufferedReader br = new BufferedReader(new FileReader("input.txt")); //the string is the directory
-        String line; //This is where the br.readLine() will be stored
-        while ((line = br.readLine()) != null){ //while the next line is still a thing
+        // Reader: This takes every line from a file and places each line into a separate element
+        // in the ArrayList.
+        
+        // This ArrayList will store each line from our file.
+        ArrayList<String> fileIn = new ArrayList<>();
+        
+        // We'll be storing each word in each line in this ArrayList.
+        ArrayList<String> tempLine = new ArrayList<>();
+        
+        // This is what reads the file and breaks it up into separate lines.
+        // "input.txt" is the file we're trying to read in.
+        BufferedReader br = new BufferedReader(new FileReader("input.txt"));
+        
+        // This will store the next line that will be read.
+        String line;
+        
+        // This condition checks if we still have any more lines to read - and 
+        // if we do, then put it into the line variable.
+        while ((line = br.readLine()) != null){
             fileIn.add(line);
         }
         
-        //String.split(regex);
-        String currLine = fileIn.get(0); //takes the first line from the file
-        for (String item: currLine.split(" ")){ //Everytime there is a space, it gets split into a separate String
-            tempLine.add(item);                 //Does not have to be only a space, can be commas
+        // This will take the first line from our file.
+        String currLine = fileIn.get(0);
+        
+        // We're going to take the line and split it into separate words. 
+        // In other words, we're going to cut the line apart wherever there's a space.
+        for (String item : currLine.split(" ")){
+            tempLine.add(item);
         }
         
         //Parse String to int
