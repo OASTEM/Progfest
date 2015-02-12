@@ -30,6 +30,7 @@ public class FileInputs{
         // This condition checks if we still have any more lines to read - and 
         // if we do, then put it into the line variable.
         while ((line = br.readLine()) != null){
+            // Add the line into our array of lines.
             fileIn.add(line);
         }
         
