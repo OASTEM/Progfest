@@ -43,24 +43,53 @@ public class FileInputs{
             tempLine.add(item);
         }
         
-        //Parse String to int
-        int[] arrayOfNums = new int[tempLine.size()]; //Makes an array a size of the amount of strings in this line
-        int currIndex = 0; //So it knows where in the array to add the new item
-        for (String word: tempLine){//For each word in this line
-            try{                    //Try converting it to an int
+        // Now we're going to take the list of strings inside tempLine and convert
+        // each string into a number.
+        
+        // First, we need to make an array the same size as tempLine to hold all
+        // our numbers.
+        int[] arrayOfNums = new int[tempLine.size()];
+        
+        // We need to know where in the array we're going to be storing each number.
+        // In other words, this is our counter variable, much like in a for loop.
+        int currIndex = 0;
+        
+        // We'll be going through each item in the tempLine list.
+        for (String word: tempLine){
+            // We might run into an error trying to convert the string into an integer,
+            // so we'll try it.
+            try{
+                // Set the array at the current index to the number.
                 arrayOfNums[currIndex] = Integer.parseInt(word);
-                currIndex++;        //If it works, then you increase your index number so you don't overwrite
+                
+                // We've successfully converted the number - now, we move on to the next
+                // index so that we can convert the next item.
+                currIndex++;
             }
-            catch (Exception e){    //If it doesn't work, it's not an int and you move on with life
-                //That ain't an int
+            catch (Exception e){
+                // We ended up running into an error converting the string into a number,
+                // so we end up here. 
             }
         }
         
-        //Writer: Similar to System.out.print() except this is to be written to a file with bw.write()
-        BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt")); //creates a new output
+        // Writer: Essentially the counterpart to BufferedReader above - instead of reading
+        // from a file, we're now going to write to it.
+        
+        // Like BufferedReader above, this is how we write to the file, where "output.txt"
+        // is the file we want to write to.
+        BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"));
+        
+        // We can now write data to the file.
         bw.write("This is a line");
+        
+        // This moves the data to a new line.
         bw.newLine();
+        
         bw.write("This is another line");
-        bw.close(); //remember this or else your output file will not have anything in it
+        
+        // After you complete all your writing, make sure to close the file writer
+        // so that the program knows you're done. If you don't do this, the program
+        // will not end up actually writing anything.
+        bw.close(); 
     }
 }
