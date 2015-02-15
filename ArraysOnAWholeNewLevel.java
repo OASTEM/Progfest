@@ -18,7 +18,7 @@ public class ArraysOnAWholeNewLevel {
         
         // Fills the 2D array with the product of the row and column index
         for (int row = 0; row < twoD.length; row++) {
-            // twoD[0].length gets the length of the 1st col, which is the
+            // twoD[0].length gets the length of the 1st col (with index 0), which is the
             // same size as any other column as this is a rectangular array
             for (int col = 0; col < twoD[0].length; col++) {
                 twoD[row][col] = row * col;
