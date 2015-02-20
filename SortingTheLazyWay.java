@@ -81,6 +81,8 @@ public class SortingTheLazyWay{
 
         // Look at the syntax over here
         ArrayList<String> listFromArray = new ArrayList<>(Arrays.asList(names));
+        
+        Collections.sort(listFromArray);
 
         System.out.println("Sorted List\n");
         for (String name : listFromArray){
